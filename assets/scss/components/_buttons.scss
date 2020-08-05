@@ -1,0 +1,59 @@
+/** x back button **/
+.x {
+  @include flexCenter;
+  width: 60px;
+  height: 60px;
+  padding: 2.5rem;
+  background-color: #444;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  right: 0;
+  z-index: 9999;
+
+  @include for-desktop-up {
+    top: 0;
+  }
+
+  @include all-mobile-devices {
+    top: 70px;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  span {
+    display: block;
+    background-color: #ffffff;
+    width: 30px;
+    height: 3px;
+    margin: 5px 0;
+
+    &:nth-child(1) {
+      transform: rotate(45deg) translate(1px, 1px);
+    }
+
+    &:nth-child(2) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+  }
+}
+
+.btn-dark {
+  background: $dark-grey;
+  border: 1px solid $white;
+  color: $white;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 1em 3em;
+}
+
+.btn-light {
+  background: $white;
+  border: 1px solid $dark-grey;
+  color: $dark-grey;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 1em 3em;
+}

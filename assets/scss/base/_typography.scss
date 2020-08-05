@@ -1,0 +1,72 @@
+/** Typography **/
+@font-face {
+  font-family: "Gill Sans Light";
+  src: url("../../../assets/fonts/GillSans-Light.ttf") format("truetype");
+  font-weight: light;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+  font-family: "Gill Sans Light";
+}
+
+p {
+  font-size: 16px !important;
+}
+
+@include for-tablet-portrait-up {
+  h1 {
+    font-size: 36px !important;
+  }
+
+  h2 {
+    font-size: 26px !important;
+  }
+
+  h3 {
+    font-size: 18px !important;
+  }
+
+  a {
+    font-size: 18px !important;
+  }
+}
+
+@include for-phone-only {
+  h1 {
+    font-size: 2rem !important;
+  }
+
+  h2 {
+    font-size: 1.2rem !important;
+  }
+
+  h3 {
+    font-size: 1.8rem !important;
+  }
+
+  a {
+    font-size: 14px !important;
+  }
+}
+
+//Headings
+
+.title {
+  padding: 1rem;
+  text-align: center;
+}
+
+.white-title {
+  color: $white;
+}
+
+.capitalise {
+  text-transform: capitalize;
+}

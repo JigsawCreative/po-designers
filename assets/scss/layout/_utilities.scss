@@ -1,0 +1,49 @@
+/** Padding Utility Classes **/
+
+.p-0 {
+    padding: 0rem;
+  }
+  
+  .p-1 {
+    padding: 1rem;
+  }
+  
+  .p-2 {
+    padding: 2rem;
+  }
+  
+  .p-3 {
+    padding: 3rem;
+  }
+  
+  .p-4 {
+    padding: 4rem;
+  }
+  
+  .p-5 {
+    padding: 5rem;
+  }
+  
+  .hidden {
+    overflow: hidden;
+  }
+
+  /** Height and Width **/ 
+  .full-width {
+    width: 100%;
+    margin: auto;
+  }
+  
+  .full-height {
+    height: 100vh;
+  
+    @include all-mobile-devices {
+      padding-top: $top-offset;
+    }
+  }
+  
+  .full-height-center {
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+  }

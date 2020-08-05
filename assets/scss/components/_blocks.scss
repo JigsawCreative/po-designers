@@ -1,0 +1,335 @@
+//ACF Guten Blocks Styling
+
+//Slider
+.slider {
+  height: 100vh;
+  position: relative;
+
+  .slides {
+    height: 100vh;
+    width: auto;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .custom-navigation {
+    z-index: 9998;
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+    a {
+      width: 100%;
+      height: inherit;
+      display: flex;
+      align-items: center;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .flex-prev {
+      justify-content: flex-start;
+      padding-left: 1rem;
+
+      &:hover {
+        background-image: linear-gradient(
+          to left,
+          rgba(0, 0, 0, 0.0001) 0,
+          rgba(0, 0, 0, 0.5) 100%
+        );
+      }
+    }
+
+    .flex-next {
+      justify-content: flex-end;
+      padding-right: 1rem;
+
+      &:hover {
+        background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.0001) 0,
+          rgba(0, 0, 0, 0.5) 100%
+        );
+      }
+    }
+  }
+
+  ul.slides {
+    list-style: none;
+    padding-left: 0px;
+    margin: 0px;
+
+    li {
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+
+      img {
+        height: 100%;
+        width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.flex-control-nav {
+  display: none;
+}
+
+//Post Category Block
+
+.post-cat-block {
+  grid-gap: 1rem;
+  .post-cat-container {
+    @include flexColumn;
+    .post-cat-img {
+      height: 100%;
+      li {
+        height: 100%;
+        width: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+          -o-object-fit: cover;
+          object-fit: cover;
+          display: -ms-flexbox;
+          flex-shrink: 0;
+          
+          max-height: 256px;
+        }
+      }
+    }
+    .post-cat-title {
+      h3 {
+        text-align: center;
+        padding: 0.5rem;
+        color: white;
+      }
+    }
+  }
+}
+
+// //PDF Item
+// .pdfjs-viewer {
+//   width: 100%;
+//   height: 100%;
+// }
+
+// .pdf-button-container {
+//   position: absolute;
+//   top: 10%;
+//   left: 2%;
+//   z-index: 4;
+// }
+
+@include all-mobile-devices {
+  /** x back button **/
+  .x-file {
+    width: 60px;
+    height: 60px;
+    background-color: #444;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    right: 0;
+    top: 35px;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /** Create cross **/
+    span {
+      display: block;
+      background-color: #ffffff;
+      width: 30px;
+      height: 3px;
+      margin: 5px 0;
+    }
+
+    span:nth-child(1) {
+      transform: rotate(45deg) translate(1px, 1px);
+    }
+
+    span:nth-child(2) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+  }
+}
+
+.mobile-download {
+  @include all-mobile-devices {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  @include for-desktop-up {
+    display: none;
+  }
+}
+
+.pdf-button-container {
+  @include for-desktop-up {
+    position: absolute;
+    top: 10%;
+    left: 2%;
+    z-index: 4;
+
+    a {
+      width: 100%;
+      margin: 5px;
+      text-align: center;
+    }
+  }
+
+  @include all-mobile-devices {
+    display: none;
+  }
+}
+
+/** Icon Gallery **/
+.icon-gallery-wrapper {
+  width: 100%;
+
+
+  .icon-img {
+    @include for-phone-only {
+      max-width: 10rem;
+    }
+  }
+}
+
+/** Render Icon Gallery Block **/
+.render-categories {
+
+  li {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $white;
+
+    &:hover {
+      cursor: pointer;
+    }
+    @include for-desktop-up {
+      img {
+        height: inherit;
+      }
+    }
+  }
+}
+
+/** Render Content Block Style **/ 
+
+/** Render Image **/
+.render-image-wrapper, .layout-image-wrapper, .pdf-wrapper {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  transform: translateY(-200%);
+  transition: 1s ease;
+  //@include centerColumn;
+  background: $grey;
+
+  @include all-mobile-devices {
+    padding-top: $top-offset;
+  }
+}
+
+.render-image-wrapper, .layout-image-wrapper {
+  height: 100vh;
+
+  img {
+    height: inherit;
+  }
+}
+
+.render-image-wrapper.active, .layout-image-wrapper.active, .pdf-wrapper.active {
+  transform: translateY(0%);
+}
+
+.render-image-wrapper {
+
+  .slider {
+    width: 100%;
+    position: unset;
+  }
+}
+
+//Centre layout drawings
+.layout-image-wrapper, .render-image-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+/** Slider arrows styling **/
+.custom-navigation {
+
+  img {
+    height: unset;
+  }
+}
+
+/** Client Feedback Block **/
+
+//Colour Choices
+
+.bg-cream {
+  background: #B0B09B;
+  color: $white;;
+
+  a {
+    color: $white;
+  }
+}
+
+.bg-white {
+  background: $white;
+  color: #999;
+
+  a {
+    color: $cream;
+  }
+}
+
+.bg-grey {
+  background: $grey;
+  color: $white;
+
+  a {
+    color: $white;
+  }
+}
+
+/** Feedback Block Spacing **/
+.feedback__container {
+  @include container;
+  @include for-desktop-up {
+    padding: 5rem 1rem;
+  }
+}
+.feedback__quote > * + *, .feedback__name > * + * {
+  margin-top: 1rem;
+}
+
+/** PDF Group Block **/
+.pdf-wrapper {
+  .wp-block-group__inner-container {
+    position: relative;
+
+    .x {
+      top: 0px;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+.category-container {
+  padding: 0.5rem;
+
+  @supports(display: grid) {
+    padding: unset;
+  }
+  @include flexColumn;
+  
+  li {
+    @supports(display: grid) {
+      height: 100%;
+    }
+
+    img {
+      max-height: 256px;
+
+      @supports(display: grid) {
+        max-height: unset;
+        height: 100%;
+        width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+
+      }
+      
+    }
+    
+  }
+  h2 {
+    padding: 1rem;
+    color: white;
+  }
+}

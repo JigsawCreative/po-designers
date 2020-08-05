@@ -1,0 +1,95 @@
+//Mixins
+//global screen size mixins
+
+@mixin for-phone-only {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) {
+    @content;
+  }
+}
+
+@mixin for-tablet-only {
+  @media (min-width: 600px) and (max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin all-mobile-devices {
+  @media (max-width: 1199px) {
+    @content;
+  }
+}
+
+@mixin for-desktop-up {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) {
+    @content;
+  }
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin centerColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin container {
+  max-width: 80rem;
+  margin: auto;
+  min-height: inherit;
+
+  @include for-desktop-up {
+    padding: 10rem 1rem;
+  }
+
+  @include all-mobile-devices {
+    padding: 1rem;
+  }
+}
+
+@mixin fullSize {
+  height: 100%!important;
+  width: 100%!important;
+}
+
+/** Utility Classes **/ 
+.flex-center {
+  @include flexCenter;
+}
+
+.flex-column {
+  @include flexColumn;
+}
+
+.center-column {
+  @include centerColumn;
+}

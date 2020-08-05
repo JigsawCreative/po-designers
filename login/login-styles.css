@@ -1,0 +1,43 @@
+body.login div#login form#loginform input#wp-submit,
+body.login div#login form#registerform input#wp-submit,
+body.login div#login form#lostpasswordform input#wp-submit {
+    background-color: #c9c9b4;
+    border: medium none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0 36px 2px;
+    text-shadow: none;
+  }
+
+/** Add login background image **/
+body.login {
+background: linear-gradient(rgba(141, 153, 174, 0.8), rgba(141, 153, 174, 0.5)), url('/wp-content/uploads/home_bg.jpg') no-repeat center center/cover;
+}
+
+/** Custom Login Icon **/ 
+body.login div#login h1 a {
+background-image: url("/wp-content/uploads/logo.png");
+}
+
+/** Remove 'back to site' icon **/  
+p#backtoblog {
+    display: none;
+}
+
+/** Style lost password link **/
+.login #nav a{
+    color: white;
+}
+
+/** Change input border colour on focus **/
+
+body.login div#login input[type="text"]:focus,
+body.login div#login input[type="password"]:focus {
+    border-color: #999;
+    box-shadow: 0 0 0 1px #999;
+}
+
+/** Change message border colour **/
+body.login div#login p.message {
+    border-left: 4px solid #999;
+}

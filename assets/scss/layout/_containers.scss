@@ -1,0 +1,69 @@
+main#content {
+  min-height: 100vh;
+  background-color: $dark-grey;
+  position: relative;
+}
+
+.container {
+  @include container;
+}
+
+//Grid Containers
+.auto-grid {
+  --auto-grid-min-size: 18rem;
+  width: 100%;
+}
+
+.auto-grid > * {
+  max-width: 200px;
+}
+
+.auto-grid > * + * {
+  margin-top: 1rem;
+}
+
+//auto-grid IE 11 support
+.auto-grid {
+  display: -ms-flexbox;
+  flex-wrap: wrap;
+
+  @include all-mobile-devices {
+    justify-content: center;
+  }
+}
+
+@supports (display: grid) {
+  .auto-grid {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(var(--auto-grid-min-size), 1fr)
+    );
+    flex-wrap: unset;
+    justify-content: unset;
+  }
+
+  .auto-grid > * {
+    max-width: unset;
+  }
+
+  .auto-grid > * + * {
+    margin-top: unset;
+  }
+}
+
+//grid gaps
+.grid-gap-1 {
+  padding: 1rem;
+  @supports (display:grid) {
+    grid-gap: 1rem;
+    padding: unset;
+  }
+}
+
+//Link wrappers
+
+.link-col {
+  @include flexColumn;
+  height: 100%;
+}
