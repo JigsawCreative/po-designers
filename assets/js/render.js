@@ -1,9 +1,9 @@
 //Grab items
 
 //Icons
-const render = document.querySelector('.render_icon_item:nth-child(1)');
-const quotation = document.querySelector('.render_icon_item:nth-child(2)');
-const layout = document.querySelector('.render_icon_item:nth-child(3)');
+const render = document.querySelector('.render');
+const quotation = document.querySelector('.quotation');
+const layout = document.querySelector('.layout');
 
 //Dropdown Content
 const renderDropdown = document.querySelector('.render-image-wrapper');
