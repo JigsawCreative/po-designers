@@ -7,6 +7,7 @@
   @include flexColumn;
   
   li {
+    max-width: 50vw;
     @supports(display: grid) {
       height: 100%;
     }

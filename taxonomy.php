@@ -15,6 +15,7 @@
             
                 $url = $_SERVER['REQUEST_URI'];
                 $terms = basename($url);
+                $title = str_replace("-", " ", $terms);
 
                 if(preg_match('/photo/', $url)) {
                     $post_type = 'images';
@@ -25,7 +26,7 @@
                 }
             ?>
 
-        <h2 class="capitalise title white-title"><?=$terms; ?></h2>        
+        <h2 class="capitalise title white-title"><?=$title; ?></h2>        
 
         <ul class="postlist auto-grid">
 
