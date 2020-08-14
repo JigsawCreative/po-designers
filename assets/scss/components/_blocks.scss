@@ -20,11 +20,23 @@
     height: 100%;
     display: flex;
 
+    @include all-mobile-devices {
+      height: calc(100% - 70px);
+      top: 70px;
+
+      a {
+        height: 100%;
+      }
+    }
+
     a {
       width: 100%;
-      height: inherit;
       display: flex;
       align-items: center;
+
+      @include for-desktop-up {
+        height: inherit;
+      }
 
       &:focus {
         outline: none;
@@ -196,11 +208,17 @@
   }
 }
 
+/** Front page Icon Gallery **/
+.front-page-icons {
+  @include for-desktop-up {
+    align-items: center;
+  }
+}
+
 /** Render Icon Gallery Block **/
 .render-categories {
 
   li {
-    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -216,6 +234,13 @@
       }
     }
   }
+  .quotation {
+    @include for-tablet-portrait-up {
+      img {
+        height: 100%;
+      }
+    }
+  }
 }
 
 /** Render Content Block Style **/ 
@@ -225,7 +250,7 @@
   position: absolute;
   top: 0;
   width: 100%;
-  transform: translateY(-200%);
+  transform: translateY(-300%);
   transition: 1s ease;
   //@include centerColumn;
   background: $grey;
@@ -238,8 +263,11 @@
 .render-image-wrapper, .layout-image-wrapper {
   height: 100vh;
 
-  img {
-    height: inherit;
+  @include for-desktop-up {  
+
+    img {
+      height: inherit;
+    }
   }
 }
 
@@ -259,6 +287,11 @@
 .layout-image-wrapper, .render-image-wrapper {
   display: flex;
   justify-content: center;
+
+  @include all-mobile-devices {
+    flex-direction: column;
+
+  }
 }
 
 /** Slider arrows styling **/
@@ -313,12 +346,9 @@
 
 /** PDF Group Block **/
 .pdf-wrapper {
+  height: 100%;
   .wp-block-group__inner-container {
     position: relative;
-
-    .x {
-      top: 0px;
-    }
 
     .pdfemb-viewer {
       max-width: 100%;

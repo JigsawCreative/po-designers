@@ -180,10 +180,10 @@ a {
   width: 60px;
   height: 60px;
   padding: 2.5rem;
-  background-color: #444;
+  background-color: #b0a773;
   background-repeat: no-repeat;
   background-position: center;
-  position: absolute;
+  position: fixed;
   right: 0;
   z-index: 9999;
 }
@@ -218,6 +218,20 @@ a {
 
 .x span:nth-child(2) {
   transform: rotate(-45deg) translate(5px, -5px);
+}
+
+@keyframes backTransition {
+  0% {
+    visibility: visible;
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0%;
+  }
 }
 
 .btn-dark {
@@ -259,11 +273,26 @@ a {
   display: flex;
 }
 
+@media (max-width: 1199px) {
+  .slider .custom-navigation {
+    height: calc(100% - 70px);
+    top: 70px;
+  }
+  .slider .custom-navigation a {
+    height: 100%;
+  }
+}
+
 .slider .custom-navigation a {
   width: 100%;
-  height: inherit;
   display: flex;
   align-items: center;
+}
+
+@media (min-width: 1200px) {
+  .slider .custom-navigation a {
+    height: inherit;
+  }
 }
 
 .slider .custom-navigation a:focus {
@@ -424,9 +453,15 @@ a {
   }
 }
 
+/** Front page Icon Gallery **/
+@media (min-width: 1200px) {
+  .front-page-icons {
+    align-items: center;
+  }
+}
+
 /** Render Icon Gallery Block **/
 .render-categories li {
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -444,13 +479,19 @@ a {
   }
 }
 
+@media (min-width: 600px) {
+  .render-categories .quotation img {
+    height: 100%;
+  }
+}
+
 /** Render Content Block Style **/
 /** Render Image **/
 .render-image-wrapper, .layout-image-wrapper, .pdf-wrapper {
   position: absolute;
   top: 0;
   width: 100%;
-  transform: translateY(-200%);
+  transform: translateY(-300%);
   transition: 1s ease;
   background: #999;
 }
@@ -465,8 +506,10 @@ a {
   height: 100vh;
 }
 
-.render-image-wrapper img, .layout-image-wrapper img {
-  height: inherit;
+@media (min-width: 1200px) {
+  .render-image-wrapper img, .layout-image-wrapper img {
+    height: inherit;
+  }
 }
 
 .render-image-wrapper.active, .layout-image-wrapper.active, .pdf-wrapper.active {
@@ -481,6 +524,12 @@ a {
 .layout-image-wrapper, .render-image-wrapper {
   display: flex;
   justify-content: center;
+}
+
+@media (max-width: 1199px) {
+  .layout-image-wrapper, .render-image-wrapper {
+    flex-direction: column;
+  }
 }
 
 /** Slider arrows styling **/
@@ -546,12 +595,12 @@ a {
 }
 
 /** PDF Group Block **/
-.pdf-wrapper .wp-block-group__inner-container {
-  position: relative;
+.pdf-wrapper {
+  height: 100%;
 }
 
-.pdf-wrapper .wp-block-group__inner-container .x {
-  top: 0px;
+.pdf-wrapper .wp-block-group__inner-container {
+  position: relative;
 }
 
 .pdf-wrapper .wp-block-group__inner-container .pdfemb-viewer {
@@ -609,7 +658,7 @@ main#content {
 @supports (display: grid) {
   .auto-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--auto-grid-min-size), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
     flex-wrap: unset;
     justify-content: unset;
   }
@@ -629,6 +678,53 @@ main#content {
   .grid-gap-1 {
     grid-gap: 1rem;
     padding: unset;
+  }
+}
+
+.flex-icon-grid {
+  display: flex;
+  justify-content: space-around;
+}
+
+@media (max-width: 599px) {
+  .flex-icon-grid {
+    flex-direction: column;
+  }
+}
+
+.flex-icon-grid li {
+  flex: 1;
+}
+
+@media (max-width: 1199px) {
+  .flex-icon-grid li img {
+    max-width: 50%;
+  }
+}
+
+.flex-render-icon-grid {
+  display: flex;
+  justify-content: space-around;
+}
+
+@media (max-width: 599px) {
+  .flex-render-icon-grid {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 1200px) {
+  .flex-render-icon-grid .render, .flex-render-icon-grid .layout, .flex-render-icon-grid .quotation {
+    flex: 1;
+  }
+}
+
+@media (max-width: 1199px) {
+  .flex-render-icon-grid .render, .flex-render-icon-grid .layout {
+    flex: 2;
+  }
+  .flex-render-icon-grid .quotation {
+    flex: 1;
   }
 }
 
@@ -910,8 +1006,10 @@ nav ul {
   }
 }
 
-.category-container li {
-  max-width: 50vw;
+@media (min-width: 1200px) {
+  .category-container li {
+    max-width: 50vw;
+  }
 }
 
 @supports (display: grid) {
@@ -963,6 +1061,10 @@ nav ul {
   padding: 5rem;
 }
 
+.p4-1 {
+  padding: 4rem 1rem !important;
+}
+
 .hidden {
   overflow: hidden;
 }
@@ -987,6 +1089,14 @@ nav ul {
   height: 100vh;
   align-items: center;
   justify-content: center;
+}
+
+.d-none {
+  animation: backTransition 1s ease 0s 1 normal forwards;
+}
+
+.hidden {
+  overflow: hidden;
 }
 
 body {

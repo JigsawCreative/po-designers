@@ -23,6 +23,10 @@
   .p-5 {
     padding: 5rem;
   }
+
+  .p4-1 {
+    padding: 4rem 1rem!important;
+  }
   
   .hidden {
     overflow: hidden;
@@ -46,4 +50,12 @@
     height: 100vh;
     align-items: center;
     justify-content: center;
+  }
+
+  .d-none {
+    animation: backTransition 1s ease 0s 1 normal forwards;
+  }
+
+  .hidden {
+    overflow: hidden;
   }

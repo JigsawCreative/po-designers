@@ -2,20 +2,37 @@
 
     <main id="content">
 
-        <!-- Load template back button -->
-        <?php $add_back_button = get_field( 'add_back_button' );
+            <?php
+
+                //Get URL
+                $url = $_SERVER['REQUEST_URI'];
+
+                //Grab directory
+                $cat_type = dirname($url);
+
+                //Remove 'renders' from url string
+                $single_cat = str_replace('renders/', "", $cat_type);
                 
-                if($add_back_button) : ?>
+                //Output final Url
+                $go_back = 'render-categories' . $single_cat;
 
-            <?php get_template_part( 'back-btn' ); ?>
+            ?>
 
-        <?php endif; ?>
-            
-        <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-            
-            <?php the_content(); ?>
+            <div class="x centred back">
 
-        <?php endwhile; endif; ?>
+                <a href="/<?php echo $go_back; ?>" class="back-btn">
+
+                    <p><b>BACK</b></p>
+
+                </a>
+
+            </div>
+                
+            <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+                
+                <?php the_content(); ?>
+
+            <?php endwhile; endif; ?>
 
     </main>
 

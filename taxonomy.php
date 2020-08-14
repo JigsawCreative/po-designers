@@ -2,29 +2,33 @@
 
     <main id="content">
 
-        <!-- Load template back button -->
-        <?php $add_back_button = get_field( 'add_back_button' );
-            
-            if($add_back_button) : ?>
+        <?php 
+        
+            $url = $_SERVER['REQUEST_URI'];
+            $terms = basename($url);
+            //remove dashes from titles and replace with spaces
+            $title = str_replace("-", " ", $terms);
 
-        <?php get_template_part( 'back-btn' ); ?>
+            if(preg_match('/photo/', $url)) {
+                $post_type = 'images';
+                $taxonomy = 'photo_categories';
+                $go_back = 'photo-categories';
+            } elseif (preg_match('/render/', $url)) {
+                $post_type = 'renders';
+                $taxonomy = 'render_categories';
+                $go_back = 'render-categories';
+            }
+        ?>
 
-        <?php endif; ?>
+        <div class="x centred">
 
-            <?php 
-            
-                $url = $_SERVER['REQUEST_URI'];
-                $terms = basename($url);
-                $title = str_replace("-", " ", $terms);
+            <a href="/<?php echo $go_back; ?>" class="back-btn">
 
-                if(preg_match('/photo/', $url)) {
-                    $post_type = 'images';
-                    $taxonomy = 'photo_categories';
-                } elseif (preg_match('/render/', $url)) {
-                    $post_type = 'renders';
-                    $taxonomy = 'render_categories';
-                }
-            ?>
+                <p><b>BACK</b></p>
+
+            </a>
+
+        </div>
 
         <h2 class="capitalise title white-title"><?=$title; ?></h2>        
 

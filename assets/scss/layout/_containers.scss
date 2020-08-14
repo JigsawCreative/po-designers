@@ -36,7 +36,7 @@ main#content {
   .auto-grid {
     display: grid;
     grid-template-columns: repeat(
-      auto-fit,
+      auto-fill,
       minmax(var(--auto-grid-min-size), 1fr)
     );
     flex-wrap: unset;
@@ -61,8 +61,51 @@ main#content {
   }
 }
 
-//Link wrappers
+//Flex Containers
+.flex-icon-grid {
+  display: flex;
+  justify-content: space-around;
 
+  @include for-phone-only {
+    flex-direction: column;
+  }
+  li {
+    flex: 1;
+    img { 
+      @include all-mobile-devices {
+        max-width: 50%;
+      }
+    }
+
+  }
+}
+
+.flex-render-icon-grid {
+  display: flex;
+  justify-content: space-around;
+
+  @include for-phone-only {
+    flex-direction: column;
+  }
+
+  @include for-desktop-up {
+    .render, .layout, .quotation {
+      flex:1;
+    }
+  }
+
+  @include all-mobile-devices {
+    .render, .layout {
+      flex: 2;
+    }
+  
+    .quotation {
+      flex: 1;
+    }
+  }
+}
+
+//Link wrappers
 .link-col {
   @include flexColumn;
   height: 100%;
