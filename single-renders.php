@@ -17,17 +17,16 @@
                 $go_back = 'render-categories' . $single_cat;
 
             ?>
+            
+            <a href="/<?php echo $go_back; ?>" class="back-btn">
 
-            <div class="x centred back">
-
-                <a href="/<?php echo $go_back; ?>" class="back-btn">
+                <div class="x centred back">
 
                     <p><b>BACK</b></p>
 
-                </a>
+                </div>
+            </a>
 
-            </div>
-                
             <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                 
                 <?php the_content(); ?>

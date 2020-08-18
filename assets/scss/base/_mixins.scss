@@ -67,10 +67,6 @@
   margin: auto;
   min-height: inherit;
 
-  @include for-desktop-up {
-    padding: 10rem 1rem;
-  }
-
   @include all-mobile-devices {
     padding: 1rem;
   }

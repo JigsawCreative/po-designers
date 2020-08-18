@@ -5,8 +5,8 @@ const render = document.querySelector('.render');
 const quotation = document.querySelector('.quotation');
 const layout = document.querySelector('.layout');
 const backBtn = document.querySelector('.back');
-const main = document.querySelector('#content');
-
+const body = document.querySelector('body');
+ 
 //Dropdown Content
 const renderDropdown = document.querySelector('.render-image-wrapper');
 const quotationDropdown = document.querySelector('.pdf-wrapper');
@@ -19,18 +19,17 @@ const renderCross = document.querySelectorAll('.render-cross');
 if(render) //check if element exists
 render.addEventListener('click', () => {
     renderDropdown.classList.add('active');
-    backBtn.classList.add('d-none');
+    scrollHide();
 });
 if(layout)
 layout.addEventListener('click', () => {
     layoutDropdwon.classList.add('active');
-    backBtn.classList.add('d-none');
+    scrollHide();
 });
 if(quotation)
 quotation.addEventListener('click', () => {
     quotationDropdown.classList.add('active');
-    backBtn.classList.add('d-none');
-    main.classList.add('hidden');
+    scrollHide();
 });
 
 //Close content
@@ -40,11 +39,13 @@ renderCross.forEach(item => {
 
             renderDropdown.classList.remove('active');
             backBtn.classList.remove('d-none');
+            scrollBarDelay();
     
         } else if (layout && layoutDropdwon.classList.contains('active')) {
             
             layoutDropdwon.classList.remove('active');
             backBtn.classList.remove('d-none');
+            scrollBarDelay();
     
         } else if (quotation && quotationDropdown.classList.contains('active')) {
 
@@ -56,9 +57,27 @@ renderCross.forEach(item => {
     })
 });
 
+//Remove overflow 
+function scrollHide() {
+    //Hide back button
+    backBtn.classList.add('d-none');
+    //scroll to top
+    window.scroll({
+        top: 100,
+        left: 0,
+        behavior: 'smooth'
+    });
+    // const main = document.querySelector('#content');
+    // console.log(main);
+    // main.scrollTop = 0;
+    // main.scrollLeft = 0;
+    //remove overflow
+    body.classList.add('hidden');
+}
+
 //Delay function
 function scrollBarDelay() {
     setTimeout(function() {
-        main.classList.remove('hidden');
-      }, 2000);
+        body.classList.remove('hidden');
+      }, 1000);
 }

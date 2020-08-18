@@ -5,7 +5,7 @@ $(window).load(function() {
     animation: "fade",
     slideshowSpeed: 5000,
     animationSpeed: 600,
-    animationLoop: false,
+    animationLoop: true,
     pauseOnAction: false,
     controlNav: true,
     rtl: true,

@@ -20,15 +20,15 @@
             }
         ?>
 
-        <div class="x centred">
+        <a href="/<?php echo $go_back; ?>" class="back-btn">
 
-            <a href="/<?php echo $go_back; ?>" class="back-btn">
+            <div class="x centred back">
 
                 <p><b>BACK</b></p>
 
-            </a>
-
-        </div>
+            </div>
+            
+        </a>
 
         <h2 class="capitalise title white-title"><?=$title; ?></h2>        
 
@@ -91,17 +91,11 @@
 
                     </li>
 
-                    <?php $job_number = get_field( 'job_number' );
-                    
-                        if($job_number) : ?>
-
-                            <h2><?php the_title(); ?> (<?=$job_number; ?>)</h2>
-
-                        <?php else : ?>
+                  
 
                             <h2><?php the_title(); ?></h2>
 
-                        <?php endif; ?>
+                      
 
                 </div>
 
